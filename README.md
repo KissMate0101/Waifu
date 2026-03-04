@@ -1,8 +1,8 @@
 
 # A projektet készítették:
-- Név1
-- Név2
+- Kiss Máté
+- Benedek Bence
 
 # Következő API-kat használtuk:
-- Api1
-- Api2
+- Waifu.im
+- Waifu.pics
