@@ -1,0 +1,334 @@
+/* Alapbeállítások és Betűtípus */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    background-color: #1a1a2e; /* Sötétkék háttér */
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* Sidebar alapstílus */
+.sidebar {
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    z-index: 500; /* A #pay (10000) alatt maradjon */
+    top: 0;
+    left: 0;
+    background-color: #16213e;
+    border-right: 2px solid #e94560;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+}
+
+.sidebar-header {
+    padding: 20px;
+    font-weight: 600;
+    color: #e94560;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #0f3460;
+    text-align: center;
+}
+
+/* A görgethető rész */
+.sidebar-content {
+    overflow-y: auto; /* Itt jön létre a belső görgetés */
+    flex-grow: 1;
+}
+
+/* Görgetősáv (scrollbar) csinosítása */
+.sidebar-content::-webkit-scrollbar {
+    width: 5px;
+}
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #e94560;
+    border-radius: 10px;
+}
+
+/* Linkek/Gombok a menüben */
+.sidebar-content a {
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    display: block;
+    transition: 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-content a:hover {
+    color: #fff;
+    background-color: #0f3460;
+    border-left: 3px solid #e94560;
+}
+
+/* --- Reszponzivitás --- */
+/* Mobilon ne takarja el a képernyőt, vagy legyen rejtve */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px; /* Csak egy kis csík marad vagy ikon */
+    }
+    .sidebar-header, .sidebar-content a {
+        font-size: 0.7rem;
+        padding: 10px 5px;
+        text-align: center;
+    }
+    body {
+        margin-left: 60px; /* Kevesebb helyet hagyunk */
+    }
+}
+
+@media (min-width: 769px) {
+    body {
+        margin-left: 200px; /* Asztalin nem lóg rá a tartalomra */
+    }
+}
+
+/* --- Fizetős Panel (Reszponzív Modal) --- */
+#pay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+
+    /* Rugalmas méretezés */
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    
+    padding: 2.5rem;
+    box-sizing: border-box;
+
+    background-color: #16213e;
+    color: #fff;
+    border-radius: 25px;
+    border: 3px solid #e94560;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(233, 69, 96, 0.2);
+    text-align: center;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Dekorációs elemek a panelen belül */
+.crown-icon {
+    font-size: 3.5rem;
+    margin-bottom: -10px;
+    filter: drop-shadow(0 0 10px rgba(233, 69, 96, 0.5));
+}
+
+.subtitle {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    text-align: left;
+    width: 100%;
+    max-width: 280px;
+}
+
+.features li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+.price-tag {
+    margin: 10px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #555;
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.new-price {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #e94560;
+    text-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
+}
+
+/* Gombok konténere - Reszponzív váltással */
+#pay .button-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* --- Általános Kártya és Elemek --- */
+.card {
+    background-color: #16213e;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-top: 0;
+    color: #e94560;
+    font-size: 1.8rem;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #0f3460;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group label {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #a0a0a0;
+}
+
+.radio-group input[type="radio"]:checked + label {
+    background-color: #e94560;
+    color: white;
+    box-shadow: 0 4px 10px rgba(233, 69, 96, 0.4);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"] {
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #0f3460;
+    background-color: #1a1a2e;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #e94560;
+}
+
+/* Globális Gomb Stílus */
+button {
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(45deg, #e94560, #ff6b6b);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+/* Speciális gomb a panelen belül */
+#pay button:last-child {
+    background: transparent;
+    border: 2px solid #0f3460;
+}
+
+#pay button:last-child:hover {
+    background: rgba(15, 52, 96, 0.4);
+}
+
+/* --- Konténer és Képek --- */
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+#container img {
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border: 2px solid #0f3460;
+    animation: fadeIn 0.7s ease-in-out;
+    transition: 1s;
+    max-width: 300px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#container img:hover{
+    transform: scale(1.2);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 5px);
+    transition: 0.5s;
+}
+
+/* --- Media Queries (Mobil optimalizálás) --- */
+@media (max-width: 500px) {
+    #pay {
+        padding: 1.5rem;
+        width: 95%;
+    }
+
+    #pay h1 {
+        font-size: 1.5rem;
+    }
+
+    #pay .button-container {
+        flex-direction: column; /* Mobilon egymás alá */
+    }
+
+    #pay button {
+        width: 100%;
+    }
+
+    .new-price {
+        font-size: 1.8rem;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
