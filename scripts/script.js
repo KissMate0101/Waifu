@@ -25,9 +25,29 @@ async function getWaifus() {
     }
 
     const mainContainer = document.getElementById("container")
+
+    const card = document.createElement("div")
+    card.className = "imgCard"
+
     const img = document.createElement("img")
-    img.src = waifudata.url;
-    mainContainer.appendChild(img);
+    img.src = waifudata.url
+
+    const overlay = document.createElement("div")
+    overlay.className = "imgOverlay"
+
+    const favBtn = document.createElement("button")
+    favBtn.innerHTML = "❤️"
+
+    const downloadBtn = document.createElement("button")
+    downloadBtn.innerHTML = "⬇"
+
+    overlay.appendChild(favBtn)
+    overlay.appendChild(downloadBtn)
+
+    card.appendChild(img)
+    card.appendChild(overlay)
+
+    mainContainer.appendChild(card)
 }
 
 function handleRatingChange() {
@@ -64,6 +84,16 @@ function randomCategory() {
 
     const random = categories[Math.floor(Math.random() * categories.length)];
     getInputField.value = random;
+}
+
+function openFavs(){
+    const panel = document.getElementById("favPanel")
+
+    if(panel.style.display === "block"){
+        panel.style.display = "none"
+    }else{
+        panel.style.display = "block"
+    }
 }
 
 const bad = document.getElementById("nsfw")
