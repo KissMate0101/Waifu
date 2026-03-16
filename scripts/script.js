@@ -18,25 +18,26 @@ async function getWaifus() {
         alert("Kérlek adj meg egy kategóriát!");
         return;
     }
-
+    
     if (!res.ok) {
         alert("Hiba! Lehet, hogy rossz kategóriát írtál be?")
         return;
     }
-
+    
     const mainContainer = document.getElementById("container")
-
+    
     const card = document.createElement("div")
     card.className = "imgCard"
-
+    
     const img = document.createElement("img")
     img.src = waifudata.url
-
+    
     const overlay = document.createElement("div")
     overlay.className = "imgOverlay"
-
+    
     const favBtn = document.createElement("button")
     favBtn.innerHTML = "❤️"
+    favBtn.addEventListener("click", () => addFav(waifudata.url))
 
     const downloadBtn = document.createElement("button")
     downloadBtn.innerHTML = "⬇"
@@ -48,6 +49,17 @@ async function getWaifus() {
     card.appendChild(overlay)
 
     mainContainer.appendChild(card)
+    
+}
+
+function addFav(imgurl){
+    const img = document.createElement("img")
+    img.src = imgurl
+    img.classList.add("favImg")
+
+    const favPanel = document.getElementById("favPanel")
+    favPanel.appendChild(img)
+    
 }
 
 function handleRatingChange() {
