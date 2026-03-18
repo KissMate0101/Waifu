@@ -14,12 +14,12 @@ async function getWaifus() {
     const res = await fetch(url);
     const waifudata = await res.json();
     
-    if (waifu === "") {
+    if (waifu === ""){
         alert("Kérlek adj meg egy kategóriát!");
         return;
     }
     
-    if (!res.ok) {
+    if (!res.ok){
         alert("Hiba! Lehet, hogy rossz kategóriát írtál be?")
         return;
     }
@@ -51,25 +51,33 @@ async function getWaifus() {
     mainContainer.appendChild(card)
 }
 
+let isfav
 function addFav(imgurl, favBtn){
-    favBtn.innerHTML = "❤️"
     const favPanel = document.getElementById("favPanel")
     const existing = document.querySelectorAll(".favImg")
-    const isFav = Array.from(existing).some(x => x.src === imgurl)
-    if (isFav) return
-
     const img = document.createElement("img")
-    img.src = imgurl
-    img.classList.add("favImg")
-    favPanel.appendChild(img)
+    if (!isfav){
+        isfav = true
+        favBtn.innerHTML = "❤️"
+        const isFav = Array.from(existing).some(x => x.src === imgurl)
+        if (isFav) return
+
+        img.src = imgurl
+        img.classList.add("favImg")
+        favPanel.appendChild(img)
+    }
+    else{
+        isfav = false
+        favBtn.innerHTML = "🤍"
+        const del = Array.from(existing).find(x => x.src === imgurl)
+        del.remove()
+    }
 }
 
 function handleRatingChange() {
-
     const inputField = getInputField;
     const pay = document.getElementById("pay");
-
-    if (isNsfw.checked) {
+    if (isNsfw.checked){
         pay.style.display = "block";
         btn.disabled = true;
     }
@@ -82,7 +90,7 @@ function setCategory(name) {
 
 function closePay(){
     pay.style.display = "none"
-    if (isSfw) {
+    if (isSfw){
         isSfw.checked = true;
     }    
 }
@@ -102,12 +110,7 @@ function randomCategory() {
 
 function openFavs(){
     const panel = document.getElementById("favPanel")
-
-    if(panel.style.display === "block"){
-        panel.style.display = "none"
-    }else{
-        panel.style.display = "block"
-    }
+    panel.classList.toggle("open");
 }
 
 const bad = document.getElementById("nsfw")
