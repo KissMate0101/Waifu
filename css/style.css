@@ -18,6 +18,29 @@ body {
     transition: margin-left 0.3s;
 }
 
+.load{
+    margin-top: 20vh;
+    text-align: center;
+}
+
+button {
+    /* Az alapstílusod marad, de adjunk hozzá egy transition-t a shadow-hoz is */
+    transition: 0.3s ease;
+}
+
+button:hover {
+    scale: 1.05;
+    /* Neonos, pirosas ragyogás, ami passzol az #e94560 színedhez */
+    box-shadow: 0 10px 20px rgba(233, 69, 96, 0.4), 
+                0 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    /* Kattintáskor egy kicsit benyomódik */
+    scale: 0.98;
+    box-shadow: 0 5px 10px rgba(233, 69, 96, 0.2);
+}
+
 /* Sidebar alapstílus */
 .sidebar {
     height: 100vh;
@@ -113,7 +136,7 @@ body {
     overflow-y: auto;
     padding: 2.5rem;
     box-sizing: border-box;
-    background-color: rgb(18, 15, 33);
+    background-color: rgba(18, 15, 33, 0.97);
     color: #fff;
     border-radius: 25px;
     border: 3px solid #e94560;
@@ -137,8 +160,12 @@ body {
 }
 
 .new-price{
-    font-size: 2em;
-    color:#c38b8b
+    font-size: 2.5em;
+    color:#f2c5c5
+}
+
+.crown-icon{
+    font-size: 3em;
 }
 
 /* --- Kártyák és Inputok --- */
@@ -262,6 +289,11 @@ button {
     cursor: pointer;
     z-index: 900;
     transition: 0.3s;
+}
+
+#fav:hover{
+    scale: 1.2;
+    background: rgba(240, 128, 128, 0.2);
 }
 
 #favPanel {

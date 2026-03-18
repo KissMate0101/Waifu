@@ -9,10 +9,16 @@ async function getWaifus() {
     const type = typeElement.value
     const inputField = getInputField
     const waifu = inputField.value.trim()
-    
+    const mainContainer = document.getElementById("container")
+    const load = document.createElement("div")
+    load.innerHTML = "Betöltés..."
+    load.classList.add("load")
+    mainContainer.appendChild(load)
+
     const url = `https://api.waifu.pics/${type}/${waifu}`;
     const res = await fetch(url);
     const waifudata = await res.json();
+    mainContainer.removeChild(load)
     
     if (waifu === ""){
         alert("Kérlek adj meg egy kategóriát!");
@@ -24,7 +30,7 @@ async function getWaifus() {
         return;
     }
     
-    const mainContainer = document.getElementById("container")
+    
     
     const card = document.createElement("div")
     card.className = "imgCard"
@@ -75,7 +81,6 @@ function addFav(imgurl, favBtn){
 }
 
 function handleRatingChange() {
-    const inputField = getInputField;
     const pay = document.getElementById("pay");
     if (isNsfw.checked){
         pay.style.display = "block";
