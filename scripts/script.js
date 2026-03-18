@@ -49,17 +49,18 @@ async function getWaifus() {
     card.appendChild(overlay)
 
     mainContainer.appendChild(card)
-    
 }
 
 function addFav(imgurl){
+    const favPanel = document.getElementById("favPanel")
+    const existing = document.querySelectorAll(".favImg")
+    const isFav = Array.from(existing).some(x => x.src === imgurl)
+    if (isFav) return
+
     const img = document.createElement("img")
     img.src = imgurl
     img.classList.add("favImg")
-
-    const favPanel = document.getElementById("favPanel")
     favPanel.appendChild(img)
-    
 }
 
 function handleRatingChange() {
