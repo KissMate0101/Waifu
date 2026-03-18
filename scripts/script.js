@@ -36,8 +36,8 @@ async function getWaifus() {
     overlay.className = "imgOverlay"
     
     const favBtn = document.createElement("button")
-    favBtn.innerHTML = "❤️"
-    favBtn.addEventListener("click", () => addFav(waifudata.url))
+    favBtn.innerHTML = "🤍"
+    favBtn.addEventListener("click", () => addFav(waifudata.url, favBtn))
 
     const downloadBtn = document.createElement("button")
     downloadBtn.innerHTML = "⬇"
@@ -51,7 +51,8 @@ async function getWaifus() {
     mainContainer.appendChild(card)
 }
 
-function addFav(imgurl){
+function addFav(imgurl, favBtn){
+    favBtn.innerHTML = "❤️"
     const favPanel = document.getElementById("favPanel")
     const existing = document.querySelectorAll(".favImg")
     const isFav = Array.from(existing).some(x => x.src === imgurl)
