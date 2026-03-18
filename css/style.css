@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {
-    background-color: #1a1a2e;
+    background-image: url(../shhhhhhhhhhhhhh.png);
+    background-size: cover;
     color: #fff;
     font-family: 'Poppins', sans-serif;
     display: flex;
@@ -22,7 +23,7 @@ body {
     z-index: 500;
     top: 0;
     left: 0;
-    background-color: #16213e;
+    background-color: rgba(21, 17, 47, 0.3);
     border-right: 2px solid #e94560;
     display: flex;
     flex-direction: column;
@@ -87,28 +88,26 @@ body {
     transform: translate(-50%, -50%);
     z-index: 10000;
     width: 90%;
-    max-width: 500px;
+    max-width: 700px;
     max-height: 90vh;
     overflow-y: auto;
     padding: 2.5rem;
     box-sizing: border-box;
-    background-color: #16213e;
+    background-color: rgba(21, 17, 47, 1);
     color: #fff;
     border-radius: 25px;
     border: 3px solid #e94560;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
-    text-align: center;
     display: none;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
     gap: 20px;
     animation: fadeIn 0.4s ease-out;
 }
 
 /* --- Kártyák és Inputok --- */
 .card {
-    background-color: #16213e;
+    background-color: rgba(18, 16, 33, 0.5);
     padding: 2rem;
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
@@ -124,7 +123,7 @@ h1 { color: #e94560; font-size: 1.8rem; }
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
-    background: #0f3460;
+    background: rgba(21, 17, 47, 0.5);
     padding: 5px;
     border-radius: 12px;
 }
@@ -217,7 +216,7 @@ button {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    background: #16213e;
+    background: rgba(12, 10, 25, 0.95);
     border: 2px solid #e94560;
     border-radius: 50%;
     cursor: pointer;
@@ -239,7 +238,7 @@ button {
     right: 25px;
     width: min(800px, 90vw);
     height: min(700px, 70vh);
-    background: #16213e;
+    background-color: rgba(12, 10, 25, 0.95);
     border: 2px solid #e94560;
     border-radius: 15px;
     padding: 15px;
