@@ -30,8 +30,6 @@ async function getWaifus() {
         return;
     }
     
-    
-    
     const card = document.createElement("div")
     card.className = "imgCard"
     
@@ -47,6 +45,7 @@ async function getWaifus() {
 
     const downloadBtn = document.createElement("button")
     downloadBtn.innerHTML = "⬇"
+    downloadBtn.addEventListener("click", () => downloadWs(waifudata.url))
 
     overlay.appendChild(favBtn)
     overlay.appendChild(downloadBtn)
@@ -78,6 +77,16 @@ function addFav(imgurl, favBtn){
         const del = Array.from(existing).find(x => x.src === imgurl)
         del.remove()
     }
+}
+
+function downloadWs(waifudata){
+    const a = document.createElement("a")
+    a.href = waifudata.url;
+    a.download = "waifu_" + Date.now() + ".jpg";
+    
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
 
 function handleRatingChange() {
