@@ -56,17 +56,30 @@ async function getWaifus() {
     mainContainer.appendChild(card)
 }
 
-let isfav
+function updateFavCount() {
+    const count = document.getElementById("favPanel").children.length - 1;
+    const badge = document.getElementById("fav-count");
+    badge.innerHTML = count
+    if(count === 0) badge.style.display = "none"
+    else{
+        badge.style.display = "flex"
+        // badge.style.animation = "badgegrow 0.3s ease"
+        badge.style.transform = "scale(1.3)"
+        setTimeout(() => badge.style.transform = "scale(1)", 200)
+    }
+}
+
 function addFav(imgurl, favBtn){
     const favPanel = document.getElementById("favPanel")
     const existing = document.querySelectorAll(".favImg")
-    const img = document.createElement("img")
-    if (!isfav){
-        isfav = true
-        favBtn.innerHTML = "❤️"
-        const isFav = Array.from(existing).some(x => x.src === imgurl)
-        if (isFav) return
+    let isfav = favBtn.innerHTML === "❤️"
 
+    if (!isfav){
+        favBtn.innerHTML = "❤️"
+        const cur = Array.from(existing).some(x => x.src === imgurl)
+        if (cur) return
+        
+        const img = document.createElement("img")
         img.src = imgurl
         img.classList.add("favImg")
         favPanel.appendChild(img)
@@ -74,9 +87,10 @@ function addFav(imgurl, favBtn){
     else{
         isfav = false
         favBtn.innerHTML = "🤍"
-        const del = Array.from(existing).find(x => x.src === imgurl)
-        del.remove()
+        const dom = Array.from(existing).find(x => x.src === imgurl)
+        dom.remove()
     }
+    updateFavCount()
 }
 
 function downloadWs(waifudata){
@@ -104,6 +118,7 @@ function setCategory(name) {
 
 function closePay(){
     pay.style.display = "none"
+    btn.disabled = false;
     if (isSfw){
         isSfw.checked = true;
     }    
