@@ -35,6 +35,8 @@ async function getWaifus() {
     
     const img = document.createElement("img")
     img.src = waifudata.url
+    const cur = Array.from(card).some(x => x.src === imgurl)
+    if (cur) return
     
     const overlay = document.createElement("div")
     overlay.className = "imgOverlay"
@@ -57,7 +59,7 @@ async function getWaifus() {
 }
 
 function updateFavCount() {
-    const count = document.getElementById("favPanel").children.length - 1;
+    const count = document.getElementById("favPanel").children.length - 2;
     const badge = document.getElementById("fav-count");
     badge.innerHTML = count
     if(count === 0) badge.style.display = "none"
@@ -66,6 +68,41 @@ function updateFavCount() {
         // badge.style.animation = "badgegrow 0.3s ease"
         badge.style.transform = "scale(1.3)"
         setTimeout(() => badge.style.transform = "scale(1)", 200)
+    }
+}
+
+function saveFavs() {
+    const imgs = document.querySelectorAll(".favImg");
+    const urls = Array.from(imgs).map(img => img.src);
+    localStorage.setItem("favs", JSON.stringify(urls));
+}
+
+function loadFavs(){
+    const saved = localStorage.getItem("favs");
+    if (!saved) return;
+
+    const urls = JSON.parse(saved);
+    const favPanel = document.getElementById("favPanel");
+
+    urls.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.classList.add("favImg");
+        favPanel.appendChild(img);
+    });
+    
+    updateFavCount()
+}
+loadFavs()
+
+function removeFavs(){
+    const images = document.querySelectorAll(".favImg");
+    if (images.length === 0) return;
+
+    if (confirm("Biztos kiüríted a kukát? 🗑️")) {
+        images.forEach(img => img.remove());
+        localStorage.removeItem("favs");
+        updateFavCount();
     }
 }
 
@@ -90,12 +127,14 @@ function addFav(imgurl, favBtn){
         const dom = Array.from(existing).find(x => x.src === imgurl)
         dom.remove()
     }
+    saveFavs();
     updateFavCount()
 }
 
 function downloadWs(waifudata){
     const a = document.createElement("a")
     a.href = waifudata.url;
+    // window.open(waifudata.url, '_blank');
     a.download = "waifu_" + Date.now() + ".jpg";
     
     document.body.appendChild(a);

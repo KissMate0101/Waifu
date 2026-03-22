@@ -362,11 +362,49 @@ button {
 
 #favPanel h2 { color: #e94560; width: 100%; margin-bottom: 15px; }
 
+/* Lebegő kuka ikon stílusa */
+.floating-trash {
+    position: sticky; /* Sticky, hogy görgetésnél is látszódjon a panel alján */
+    float: right;
+    bottom: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* Kör alakú */
+    background: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ff2e63;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    margin-top: -45px; /* Hogy ne tolja el a tartalom végét */
+    transition: all 0.3s ease;
+}
+
+.floating-trash:hover {
+    background: rgba(157, 26, 26, 0.428);
+    transform: scale(1.1) rotate(10deg); /* Egy kis játékos mozgás */
+    box-shadow: 0 0 20px rgba(84, 28, 37, 0.6);
+}
+
+/* Ha mobilon vagy, legyen kicsit kisebb */
+@media (max-width: 480px) {
+    .floating-trash {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
 .favImg {
     width: calc(33.33% - 14px);
     aspect-ratio: 1 / 1; 
     border-radius: 10px;
-    object-fit: cover; 
+    object-fit:cover; 
     transition: 0.25s;
     cursor: pointer;
     margin: 5px;

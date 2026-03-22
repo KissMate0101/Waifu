@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <title>Waifus and more</title>
 </head>
+
 <body>
     <div class="sidebar">
-    <div class="sidebar-header">Kategóriák</div>
-    <div style="padding: 10px; border-bottom: 1px solid #0f3460;">
-        <button onclick="randomCategory()" style="width: 100%; padding: 10px;" class="rand">Random</button>
+        <div class="sidebar-header">Kategóriák</div>
+        <div style="padding: 10px; border-bottom: 1px solid #0f3460;">
+            <button onclick="randomCategory()" style="width: 100%; padding: 10px;" class="rand">Random</button>
+        </div>
+        <div class="sidebar-content">
+            <a href="#" onclick="setCategory('waifu')">waifu</a>
+            <a href="#" onclick="setCategory('neko')">neko</a>
+            <a href="#" onclick="setCategory('shinobu')">shinobu</a>
+            <a href="#" onclick="setCategory('megumin')">megumin</a>
+            <a href="#" onclick="setCategory('bully')">bully</a>
+            <a href="#" onclick="setCategory('cuddle')">cuddle</a>
+            <a href="#" onclick="setCategory('cry')">cry</a>
+            <a href="#" onclick="setCategory('hug')">hug</a>
+            <a href="#" onclick="setCategory('awoo')">awoo</a>
+            <a href="#" onclick="setCategory('kiss')">kiss</a>
+            <a href="#" onclick="setCategory('lick')">lick</a>
+            <a href="#" onclick="setCategory('pat')">pat</a>
+            <a href="#" onclick="setCategory('smug')">smug</a>
+            <a href="#" onclick="setCategory('bonk')">bonk</a>
+            <a href="#" onclick="setCategory('yeet')">yeet</a>
+            <a href="#" onclick="setCategory('blush')">blush</a>
+            <a href="#" onclick="setCategory('smile')">smile</a>
+            <a href="#" onclick="setCategory('wave')">wave</a>
+            <a href="#" onclick="setCategory('highfive')">highfive</a>
+            <a href="#" onclick="setCategory('handhold')">handhold</a>
+            <a href="#" onclick="setCategory('nom')">nom</a>
+            <a href="#" onclick="setCategory('bite')">bite</a>
+            <a href="#" onclick="setCategory('glomp')">glomp</a>
+            <a href="#" onclick="setCategory('slap')">slap</a>
+            <a href="#" onclick="setCategory('kill')">kill</a>
+            <a href="#" onclick="setCategory('kick')">kick</a>
+            <a href="#" onclick="setCategory('happy')">happy</a>
+            <a href="#" onclick="setCategory('wink')">wink</a>
+            <a href="#" onclick="setCategory('poke')">poke</a>
+            <a href="#" onclick="setCategory('dance')">dance</a>
+            <a href="#" onclick="setCategory('cringe')">cringe</a>
+        </div>
     </div>
-    <div class="sidebar-content">
-        <a href="#" onclick="setCategory('waifu')">waifu</a>
-        <a href="#" onclick="setCategory('neko')">neko</a>
-        <a href="#" onclick="setCategory('shinobu')">shinobu</a>
-        <a href="#" onclick="setCategory('megumin')">megumin</a>
-        <a href="#" onclick="setCategory('bully')">bully</a>
-        <a href="#" onclick="setCategory('cuddle')">cuddle</a>
-        <a href="#" onclick="setCategory('cry')">cry</a>
-        <a href="#" onclick="setCategory('hug')">hug</a>
-        <a href="#" onclick="setCategory('awoo')">awoo</a>
-        <a href="#" onclick="setCategory('kiss')">kiss</a>
-        <a href="#" onclick="setCategory('lick')">lick</a>
-        <a href="#" onclick="setCategory('pat')">pat</a>
-        <a href="#" onclick="setCategory('smug')">smug</a>
-        <a href="#" onclick="setCategory('bonk')">bonk</a>
-        <a href="#" onclick="setCategory('yeet')">yeet</a>
-        <a href="#" onclick="setCategory('blush')">blush</a>
-        <a href="#" onclick="setCategory('smile')">smile</a>
-        <a href="#" onclick="setCategory('wave')">wave</a>
-        <a href="#" onclick="setCategory('highfive')">highfive</a>
-        <a href="#" onclick="setCategory('handhold')">handhold</a>
-        <a href="#" onclick="setCategory('nom')">nom</a>
-        <a href="#" onclick="setCategory('bite')">bite</a>
-        <a href="#" onclick="setCategory('glomp')">glomp</a>
-        <a href="#" onclick="setCategory('slap')">slap</a>
-        <a href="#" onclick="setCategory('kill')">kill</a>
-        <a href="#" onclick="setCategory('kick')">kick</a>
-        <a href="#" onclick="setCategory('happy')">happy</a>
-        <a href="#" onclick="setCategory('wink')">wink</a>
-        <a href="#" onclick="setCategory('poke')">poke</a>
-        <a href="#" onclick="setCategory('dance')">dance</a>
-        <a href="#" onclick="setCategory('cringe')">cringe</a>
-    </div>
-</div>
 
     <div id="pay">
         <div class="crown-icon">👑</div>
         <h1>Prémium Hozzáférés</h1>
         <p class="subtitle">Oldd fel az összes exkluzív kategóriát és élvezd a hirdetésmentes böngészést!</p>
-        
+
         <ul class="features">
             <li>✅ +10 Exkluzív NSFW kategória</li>
             <li>✅ Ultra HD (4K) felbontás</li>
@@ -69,32 +71,37 @@
             <button onclick="closePay()">Mégse</button>
         </div>
     </div>
-        <div class="card">
-            <h1>Istenem</h1>
+    <div class="card">
+        <h1>Istenem</h1>
 
-            <div class="radio-group">
-                <input type="radio" name="rating" id="sfw" value="sfw" checked>
-                <label for="sfw">SFW (Biztonságos)</label>
+        <div class="radio-group">
+            <input type="radio" name="rating" id="sfw" value="sfw" checked>
+            <label for="sfw">SFW (Biztonságos)</label>
 
-                <input type="radio" name="rating" id="nsfw" value="nsfw">
-                <label for="nsfw">NSFW (18+) (Shhhhhhhhh)</label>
-            </div>
-
-            <div class="input-group">
-                <input type="text" id="waifu_name" placeholder="Írj be egy kategóriát... (pl. waifu)">
-                <button onclick="getWaifus()" id="btn">Kép Kérése</button>
-            </div>
-        </div>
-        <div id="container"></div>
-        
-        <div id="fav" onclick="openFavs()">
-            <span id="fav-count">0</span>
-            ❤️
+            <input type="radio" name="rating" id="nsfw" value="nsfw">
+            <label for="nsfw">NSFW (18+) (Shhhhhhhhh)</label>
         </div>
 
-        <div id="favPanel">
-            <h2>Favorite képek</h2>
+        <div class="input-group">
+            <input type="text" id="waifu_name" placeholder="Írj be egy kategóriát... (pl. waifu)">
+            <button onclick="getWaifus()" id="btn">Kép Kérése</button>
         </div>
+    </div>
+    <div id="container"></div>
+
+    <div id="fav" onclick="openFavs()">
+        <span id="fav-count">0</span>
+        ❤️
+    </div>
+
+    <div id="favPanel">
+        <h2>Favorite képek</h2>
+
+        <button onclick="removeFavs()" class="floating-trash" title="Összes törlése">
+            🗑️
+        </button>
+    </div>
     <script src="../scripts/script.js"></script>
 </body>
+
 </html>
