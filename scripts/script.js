@@ -35,6 +35,7 @@ async function getWaifus() {
     
     const img = document.createElement("img")
     img.src = waifudata.url
+
     const cur = Array.from(card).some(x => x.src === imgurl)
     if (cur) return
     
@@ -99,7 +100,8 @@ function removeFavs(){
     const images = document.querySelectorAll(".favImg");
     if (images.length === 0) return;
 
-    if (confirm("Biztos kiüríted a kukát? 🗑️")) {
+    const conf = confirm("Biztos kiüríted a kukát? 🗑️")
+    if (conf) {
         images.forEach(img => img.remove());
         localStorage.removeItem("favs");
         updateFavCount();
@@ -132,14 +134,19 @@ function addFav(imgurl, favBtn){
 }
 
 function downloadWs(waifudata){
-    const a = document.createElement("a")
-    a.href = waifudata.url;
-    // window.open(waifudata.url, '_blank');
-    a.download = "waifu_" + Date.now() + ".jpg";
-    
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    try {
+        const a = document.createElement("a")
+        a.href = waifudata.url;
+        a.download = "waifu_" + Date.now() + ".jpg";
+        
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    } 
+    catch (error)
+    {
+        alert("Nem tölthető le kép, amig nincs előfizetésed!")
+    }
 }
 
 function handleRatingChange() {
